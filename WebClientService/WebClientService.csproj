@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HttpRequestWrapper">
+      <HintPath>..\..\HttpRequestWrapper\HttpRequestWrapper\bin\Debug\netstandard2.0\HttpRequestWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonConvertWrapper">
+      <HintPath>..\..\JsonConvertWrapper\JsonConvertWrapper\bin\Debug\netstandard2.0\JsonConvertWrapper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
