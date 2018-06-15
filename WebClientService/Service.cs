@@ -10,7 +10,7 @@ namespace WebClientService
 {
     public abstract class Service : IService
     {
-        private const int DefaultStatusCodeForNotCorrectWork = 300;
+        private const int DefaultStatusCodeForInCorrectResponse = 300;
         public string StatusCodeToMessage(int statusCode)
         {
             switch (statusCode)
@@ -45,7 +45,7 @@ namespace WebClientService
             
             (int statusCode, string  response) = await http.PostAsync(url, entityAsJson);
 
-            if (statusCode > DefaultStatusCodeForNotCorrectWork)
+            if (statusCode > DefaultStatusCodeForInCorrectResponse)
             {
                 return (false, this.StatusCodeToMessage(statusCode), default(TEntity));
             }
@@ -77,7 +77,7 @@ namespace WebClientService
 
             (int statusCode, string response) = await http.PutAsync(url, data);
 
-            if (statusCode > DefaultStatusCodeForNotCorrectWork)
+            if (statusCode > DefaultStatusCodeForInCorrectResponse)
             {
                 return (false, this.StatusCodeToMessage(statusCode));
             }
@@ -94,7 +94,7 @@ namespace WebClientService
 
             (int statusCode, string response) = await http.DeleteAsync(url);
 
-            if (statusCode > DefaultStatusCodeForNotCorrectWork)
+            if (statusCode > DefaultStatusCodeForInCorrectResponse)
             {
                 return (false, this.StatusCodeToMessage(statusCode));
             }
@@ -107,7 +107,7 @@ namespace WebClientService
         {
             (int statusCode, string response) = await http.GetAsync(url);
 
-            if (statusCode > DefaultStatusCodeForNotCorrectWork)
+            if (statusCode > DefaultStatusCodeForInCorrectResponse)
             {
                 return (false, this.StatusCodeToMessage(statusCode), default(TDto));
             }
@@ -127,7 +127,7 @@ namespace WebClientService
         {
             (int statusCode, string response) = await http.GetAsync(url);
 
-            if (statusCode > DefaultStatusCodeForNotCorrectWork)
+            if (statusCode > DefaultStatusCodeForInCorrectResponse)
             {
                 return (false, this.StatusCodeToMessage(statusCode), null);
             }
@@ -147,7 +147,7 @@ namespace WebClientService
         {
             (int statusCode, string response) = await http.GetAsync(url);
 
-            if (statusCode > DefaultStatusCodeForNotCorrectWork)
+            if (statusCode > DefaultStatusCodeForInCorrectResponse)
             {
                 return (false, this.StatusCodeToMessage(statusCode), null);
             }
